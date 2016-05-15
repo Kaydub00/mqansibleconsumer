@@ -1,7 +1,7 @@
 import stomp
 from stomp import ConnectionListener
 import json
-
+from pyansible import *
 
 
 queuename = "QUEUE_NAME_HERE"
@@ -12,6 +12,7 @@ class AnsibleConsumer(ConnectionListener):
     print "error"
 
   def on_message(self, headers, message):
+    data = json.loads(message)
     print "received message"
 
 

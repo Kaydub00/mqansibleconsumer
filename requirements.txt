@@ -1,1 +1,3 @@
 stomp.py
+jinja2
+ansible<2.0

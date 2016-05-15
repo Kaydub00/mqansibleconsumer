@@ -1,10 +1,12 @@
 ## This is just for Ansible 1.X, will need to be updated for Ansilbe 2
 import jinja2
 from tempfile import NamedTemporaryFile
-from ansible import callbacks
-from ansible import utils
 import ansible.runner
 import ansible.playbook
+from ansible import callbacks
+from ansible import utils
+
+
 
 class InventoryBuilder:
 
@@ -48,3 +50,9 @@ class PlaybookRunner:
     )
     ret = pb.run()
     return ret
+
+
+if __name__ == "__main__":
+  inbuilder = InventoryBuilder(['host1.test.com','host2.test.com'])
+  f = inbuilder.getInventoryFile()
+  print f.name
